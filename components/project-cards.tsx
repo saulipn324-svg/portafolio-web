@@ -41,7 +41,7 @@ const projects = [
 
 export function ProjectCards() {
   return <>
-    <p className="project-access">Las demos y los repositorios tienen acceso restringido por el momento.</p>
+    <p className="project-access">Prueba Issueflow y RepoLens en línea y consulta los enlaces al código y la documentación. La demo de Turno tiene acceso restringido.</p>
     <div className="project-grid technical-projects">
       {projects.map((project, index) => {
         const repository = `https://github.com/saulipn324-svg/${project.slug}`;
@@ -62,7 +62,7 @@ export function ProjectCards() {
             <p className="project-scope">{project.scope}</p>
           </div>
           <nav className="project-bottom project-links" aria-label={`Enlaces de ${project.title}`}>
-            <a href={demo} target="_blank" rel="noopener noreferrer">Demo <ArrowUpRight size={15} aria-hidden="true" /></a>
+            <a href={demo} target="_blank" rel="noopener noreferrer">{project.slug === 'turno' ? 'Demo privada' : 'Demo pública'} <ArrowUpRight size={15} aria-hidden="true" /></a>
             <a href={repository} target="_blank" rel="noopener noreferrer">Código <ArrowUpRight size={15} aria-hidden="true" /></a>
             <a href={`${demo}/guia.html`} target="_blank" rel="noopener noreferrer">Guía <ArrowUpRight size={15} aria-hidden="true" /></a>
             <a href={`${repository}/blob/main/docs/ARQUITECTURA.md`} target="_blank" rel="noopener noreferrer">Arquitectura <ArrowUpRight size={15} aria-hidden="true" /></a>
