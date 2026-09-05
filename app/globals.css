@@ -8,6 +8,9 @@
 .project-links{display:flex;gap:18px;margin-top:16px;font:12px Arial,sans-serif}.project-links a{color:#31593a;border-bottom:1px solid #9eb18c;padding-bottom:4px}.project-links a:hover{color:#172d1c}
 .project-access{font-size:14px;line-height:1.6;color:#53634e;margin:12px 0 0}
 .technical-projects .project{display:flex;flex-direction:column;min-width:0}
+.project-preview{margin:0;aspect-ratio:16/9;overflow:hidden;background:#18201b;border-bottom:1px solid var(--border)}
+.project-preview img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.technical-projects .project:hover .project-preview img{transform:scale(1.025)}
 .technical-projects .project-top{padding:22px;gap:12px;font-size:12px;letter-spacing:.4px}
 .technical-projects .project-top svg{flex-shrink:0}
 .technical-projects .project-body{padding:26px 22px;flex:1}
@@ -26,7 +29,3 @@
 .technical-projects .project-links a{display:inline-flex;align-items:center;gap:3px;min-height:32px}
 @media(min-width:801px) and (max-width:1100px){.technical-projects{grid-template-columns:1fr}.technical-projects .project-body{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}.technical-projects .status,.technical-projects h3,.technical-projects .project-stack,.technical-projects .project-scope{grid-column:1/-1}.technical-projects .architecture-summary{margin-top:0}.technical-projects .project-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.technical-projects .project-facts>div+div{margin-top:0}}
 
-
-.project-preview{margin:0;aspect-ratio:16/9;overflow:hidden;background:#18201b;border-bottom:1px solid var(--border)}
-.project-preview img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-.technical-projects .project:hover .project-preview img{transform:scale(1.025)}
