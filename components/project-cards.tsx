@@ -37,11 +37,23 @@ const projects = [
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'GitHub REST API'],
     scope: 'Consulta datos públicos desde el navegador. Las métricas describen la muestra recibida; no representan toda la actividad de una cuenta.',
   },
+  {
+    slug: 'panelium', title: 'Panelium', category: 'LECTOR DE CÓMICS Y MANGA',
+    problem: 'Administrar una biblioteca ilustrada, publicar capítulos y conservar de forma segura el avance de cada lector.',
+    architecture: 'Monolito modular',
+    reason: 'Mantiene un despliegue sencillo y separa catálogo, lectura, biblioteca, seguridad, administración y medios por dominio.',
+    structure: 'Next.js → API modular → PostgreSQL / MinIO',
+    features: 'Registro y acceso con JWT, roles de lector y administrador, catálogo, lector, progreso individual y panel editorial con carga de imágenes.',
+    decision: 'Las imágenes se almacenan como objetos en MinIO y PostgreSQL conserva sus metadatos. El token identifica al lector sin mantener sesiones en el servidor.',
+    tests: 'Autenticación, autorización por rol, catálogo, manifiesto de lectura, carga multipart, persistencia del progreso y reinicio completo con Docker.',
+    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Java 21', 'Spring Boot', 'PostgreSQL', 'MinIO', 'Docker'],
+    scope: 'Aplicación completa verificada localmente con contenedores y demo pública autónoma del catálogo, lector y progreso. Las portadas comerciales permanecen excluidas.',
+  },
 ];
 
 export function ProjectCards() {
   return <>
-    <p className="project-access">Prueba Issueflow y RepoLens en línea y consulta los enlaces al código y la documentación. La demo de Turno tiene acceso restringido.</p>
+    <p className="project-access">Prueba Issueflow, RepoLens y Panelium en línea y consulta el código y la documentación técnica de los cuatro proyectos.</p>
     <div className="project-grid technical-projects">
       {projects.map((project, index) => {
         const repository = `https://github.com/saulipn324-svg/${project.slug}`;
@@ -62,10 +74,10 @@ export function ProjectCards() {
             <p className="project-scope">{project.scope}</p>
           </div>
           <nav className="project-bottom project-links" aria-label={`Enlaces de ${project.title}`}>
-            <a href={demo} target="_blank" rel="noopener noreferrer">{project.slug === 'turno' ? 'Demo privada' : 'Demo pública'} <ArrowUpRight size={15} aria-hidden="true" /></a>
+            {demo && <a href={demo} target="_blank" rel="noopener noreferrer">{project.slug === 'turno' ? 'Demo privada' : 'Demo pública'} <ArrowUpRight size={15} aria-hidden="true" /></a>}
             <a href={repository} target="_blank" rel="noopener noreferrer">Código <ArrowUpRight size={15} aria-hidden="true" /></a>
-            <a href={`${demo}/guia.html`} target="_blank" rel="noopener noreferrer">Guía <ArrowUpRight size={15} aria-hidden="true" /></a>
-            <a href={`${repository}/blob/main/docs/ARQUITECTURA.md`} target="_blank" rel="noopener noreferrer">Arquitectura <ArrowUpRight size={15} aria-hidden="true" /></a>
+            {demo && project.slug !== 'panelium' && <a href={`${demo}/guia.html`} target="_blank" rel="noopener noreferrer">Guía <ArrowUpRight size={15} aria-hidden="true" /></a>}
+            <a href={`${repository}/blob/main/docs/${project.slug === 'panelium' ? 'ARCHITECTURE' : 'ARQUITECTURA'}.md`} target="_blank" rel="noopener noreferrer">Arquitectura <ArrowUpRight size={15} aria-hidden="true" /></a>
           </nav>
         </article>;
       })}
