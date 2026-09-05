@@ -41,7 +41,9 @@ const projects = [
     slug: 'panelium', title: 'Panelium', category: 'LECTOR DE CÓMICS Y MANGA',
     problem: 'Administrar una biblioteca ilustrada, publicar capítulos y conservar de forma segura el avance de cada lector.',
     architecture: 'Monolito modular',
-    reason: 'Mantiene un despliegue sencillo y separa catálogo, lectura, biblioteca, seguridad, administración y medios por dominio.',
+    reason: 'Mantiene un despliegue sencillo y separa catálogo, lectura, biblioteca, seguridad, administración project-top
+      y medios por dominio.',
+            <figure className="project-preview"><img src={`${project.slug}.svg`} alt={`Vista ilustrativa de ${project.title}`} loading="lazy" /></figure>
     structure: 'Next.js → API modular → PostgreSQL / MinIO',
     features: 'Registro y acceso con JWT, roles de lector y administrador, catálogo, lector, progreso individual y panel editorial con carga de imágenes.',
     decision: 'Las imágenes se almacenan como objetos en MinIO y PostgreSQL conserva sus metadatos. El token identifica al lector sin mantener sesiones en el servidor.',
